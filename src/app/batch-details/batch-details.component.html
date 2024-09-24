@@ -1,0 +1,88 @@
+
+
+<div class="container mt-4">
+    <h1 class="text-center">Marvellous Registration Form</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.status !== 'INVALID' && registerFn()">
+      <div class="mb-3">
+        <label for="fname" class="form-label">First Name</label>           
+        <input type="text " class="form-control" id="fname" placeholder="First Name" formControlName="fname" [ngClass]="{error: getControls('fname')?.errors && getControls('fname')?.touched}" >
+        <div *ngIf="getControls('fname')?.errors && getControls('fname')?.touched">
+          <small class="text-danger" *ngIf="getControls('fname')?.errors?.['required']">First name is required</small>
+          <small class="text-danger" *ngIf="getControls('fname')?.errors?.['maxlength']">only 20 letters are allowed</small>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" formControlName="lname" [ngClass]="{error: getControls('lname')?.errors && getControls('lname')?.touched}">
+        <div *ngIf="getControls('lname')?.errors && getControls('lname')?.touched">
+          <small class="text-danger" *ngIf="getControls('lname')?.errors?.['required']">Last name is required</small>
+          <small class="text-danger" *ngIf="getControls('lname')?.errors?.['maxlength']">only 20 letters are allowed</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="mobile" placeholder="Mobile" formControlName="mobile" [ngClass]="{error: getControls('mobile')?.errors && getControls('mobile')?.touched}">
+        <div *ngIf="getControls('mobile')?.errors && getControls('mobile')?.touched">
+          <small class="text-danger" *ngIf="getControls('mobile')?.errors?.['required']">Mobile number is required</small>
+          <small class="text-danger" *ngIf="getControls('mobile')?.errors?.['maxlength'] || getControls('mobile')?.errors?.['minlength'] ">Please enter valid mobile number</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="{error: getControls('email')?.errors && getControls('email')?.touched}">
+        <div *ngIf="getControls('email')?.errors && getControls('email')?.touched"></div>
+        <small class="text-danger" *ngIf="getControls('email')?.errors?.['required']">Email id is required</small>
+        <small class="text-danger" *ngIf="getControls('email')?.errors?.['maxlength']">Please enter valid email id</small>
+        <small class="text-danger" *ngIf="getControls('email')?.errors?.['pattern']">Please enter valid email id</small>
+      </div>
+      <!-- <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password"formControlName="password" [ngClass]="{error: getControls('password')?.errors && getControls('password')?.touched}">
+        <div *ngIf="getControls('password')?.errors && getControls('password')?.touched">
+          <small class="text-danger" *ngIf="getControls('password')?.errors?.['required']">Password is required</small>
+          <small class="text-danger" *ngIf="getControls('password')?.errors?.['maxlength'] || getControls('password')?.errors?.['minlength']">Password should be manimum 8 chracters and maximum 32 characters</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" placeholder="COnfirm_Password" formControlName="confirm_password" [ngClass]="{error: getControls('confirm_password')?.errors && getControls('confirm_password')?.touched}">
+        <div *ngIf="getControls('confirm_password')?.errors && getControls('confirm_password')?.touched">
+          <small class="text-danger" *ngIf="getControls('confirm_password')?.errors?.['required']">COnfirm password is required</small>
+          <small class="text-danger" *ngIf="getControls('confirm_password')?.errors?.['maxlength'] || getControls('confirm_password')?.errors?.['minlength']">Password must be same as above</small>
+        </div>
+      </div> -->
+      
+      
+      <div class="form-group">
+        <label for="batch">Batch Name</label>
+        <select formControlName="batch" class="form-control">
+          <option>Choose Batch</option>
+          <option *ngFor="let Batch of Batches">{{Batch}}</option>
+        </select>
+  
+        <div *ngIf="getControls('batch')?.errors && getControls('batch')?.touched">
+          <small class="text-danger" *ngIf="getControls('batch')?.errors?.['required']">Select Batch</small>
+        </div>
+        </div>
+      <div formGroupName = "RegisterClass">
+        <!-- <div class = "form-group">
+          <label>Batch Name</label>
+          <input type="text" class = "form-control" formControlName="batch" placeholder="Batch Name" >
+        </div>
+     -->
+        <div class = "form-group">
+          <label>Fees</label>
+          <input type="text" class = "form-control" formControlName="fees" placeholder="Fees" >
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <input type="submit" [disabled]="registerForm.status === 'INVALID'" class="btn btn-primary" routerLink="/register">
+      </div>
+      
+    </form>
+  
+  </div>

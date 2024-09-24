@@ -1,0 +1,14 @@
+
+.error{
+    border: 1px solid red ;
+  }
+  .container{
+    width: 92%;
+    height: auto;
+    margin: 70px auto 70px;
+    padding: 82px;
+    background-color: #cee2ed;
+    color: #333;
+    border: 2px solid #C2D6FF;
+    border-radius: 70px 0;
+    }

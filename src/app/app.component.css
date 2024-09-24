@@ -1,0 +1,24 @@
+.navbar{
+    background: linear-gradient(314deg,#16c9f6 75%,#fff 0%);
+    font-size: 20px;
+}
+.navbar img{
+    width: 47px;
+    height: 55px;
+}
+.navbar a{
+    color: black;
+}
+
+.navbar-dark .navbar-toggler {
+    background-color: #00000035;
+    border-color: rgb(0 0 0);
+}
+.navbar-toggler-icon{
+    color: #000;
+}
+@media(max-width: 768px){
+.navbar{
+background: linear-gradient(318deg,#16c9f6 51%,#fff 0%)
+}
+}
